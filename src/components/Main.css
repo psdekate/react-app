@@ -1,0 +1,19 @@
+.mainContent {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  grid-auto-rows: min-content;
+}
+
+.card {
+  padding: 1.5rem;
+  background-color: rgb(48, 48, 48);
+  border-radius: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+h3 {
+  font-size: 2rem;
+}

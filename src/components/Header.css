@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.menuList {
+  display: flex;
+  list-style-type: none;
+  gap: 4rem;
+}
