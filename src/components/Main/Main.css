@@ -1,4 +1,10 @@
-.mainContent {
+.infoCards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
@@ -16,4 +22,15 @@
 
 h3 {
   font-size: 2rem;
+}
+
+.tabContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.infoTabs {
+  display: flex;
+  gap: 1rem;
 }
