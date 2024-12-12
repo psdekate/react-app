@@ -1,6 +1,7 @@
 import "../Main/Main.css";
 import { TabContent } from "../Main/TabContent";
 import { items } from "../../data";
+import { useState } from "react";
 
 export function Card(props) {
   return (
@@ -15,8 +16,11 @@ export function Card(props) {
 }
 
 export function Main() {
+  const [selectedTopic, setSelectedTopic] = useState("JSX");
+
   function handleClick(selectedMessage) {
-    return console.log(selectedMessage);
+    setSelectedTopic(selectedMessage);
+    // console.log(selectedMessage);
   }
 
   return (
@@ -36,7 +40,10 @@ export function Main() {
             <TabContent onSelect={() => handleClick("Props")}>Props</TabContent>
             <TabContent onSelect={() => handleClick("State")}>State</TabContent>
           </div>
-          dynamic content
+          <div className="topicContent">
+            <h3>{items[selectedTopic].title}</h3>
+            <p>{items[selectedTopic].description}</p>
+          </div>
         </section>
       </div>
     </>

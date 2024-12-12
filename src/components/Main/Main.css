@@ -34,3 +34,8 @@ h3 {
   display: flex;
   gap: 1rem;
 }
+
+.topicContent {
+  padding: 1rem;
+  background-color: #303030;
+}
