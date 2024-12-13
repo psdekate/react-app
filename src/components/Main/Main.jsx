@@ -16,7 +16,18 @@ export function Card(props) {
 }
 
 export function Main() {
-  const [selectedTopic, setSelectedTopic] = useState("JSX");
+  const [selectedTopic, setSelectedTopic] = useState();
+
+  let tabContent = <p>Click on the tabs above</p>;
+
+  if (selectedTopic) {
+    tabContent = (
+      <div className="topicContent">
+        <h3>{items[selectedTopic].title}</h3>
+        <p>{items[selectedTopic].description}</p>
+      </div>
+    );
+  }
 
   function handleClick(selectedMessage) {
     setSelectedTopic(selectedMessage);
@@ -40,10 +51,28 @@ export function Main() {
             <TabContent onSelect={() => handleClick("Props")}>Props</TabContent>
             <TabContent onSelect={() => handleClick("State")}>State</TabContent>
           </div>
-          <div className="topicContent">
-            <h3>{items[selectedTopic].title}</h3>
-            <p>{items[selectedTopic].description}</p>
-          </div>
+
+          {/* Method 1: using ternary operator */}
+          {/* {!selectedTopic ? (
+            <p>Please select something</p>
+          ) : (
+            <div className="topicContent">
+              <h3>{items[selectedTopic].title}</h3>
+              <p>{items[selectedTopic].description}</p>
+            </div>
+          )} */}
+
+          {/* Method 2: using binary operator */}
+          {/* {!selectedTopic && <p>Select something to begin with </p>}
+          {selectedTopic && (
+            <div className="topicContent">
+              <h3>{items[selectedTopic].title}</h3>
+              <p>{items[selectedTopic].description}</p>
+            </div>
+          )} */}
+
+          {/* Method 3: using a constant and storing a value */}
+          {tabContent}
         </section>
       </div>
     </>
