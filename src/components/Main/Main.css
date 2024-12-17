@@ -39,3 +39,11 @@ h3 {
   padding: 1rem;
   background-color: #303030;
 }
+
+.active {
+  color: red;
+}
+
+.inActive {
+  color: rgb(6, 255, 6);
+}
