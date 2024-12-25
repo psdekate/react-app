@@ -1,4 +1,4 @@
-import "../Main/TabContent.css";
+import "../TabContent/TabContent.css";
 
 export function TabContent({ children, onSelect, isSelected }) {
   return (
