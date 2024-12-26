@@ -18,7 +18,7 @@ export function Card(props) {
     <>
       <div className="card">
         <p>{props.id}</p>
-        <h2>{props.name}</h2>
+        <h3>{props.name}</h3>
         <p className={props.isAvailable ? "inActive" : "active"}>
           {props.isAvailable ? "Available" : "Not Available"}
         </p>

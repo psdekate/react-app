@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { items } from "../data";
 import { TabContent } from "../components/TabContent/TabContent";
+import { Section } from "./Section";
+import { Tabs } from "./Tabs";
 
 export function TabContents() {
   const [selectedTopic, setSelectedTopic] = useState();
@@ -21,25 +23,30 @@ export function TabContents() {
     // console.log(selectedMessage);
   }
   return (
-    <section className="tabContent">
-      <h3>Examples</h3>
-      <div className="infoTabs">
-        <TabContent
-          isSelected={selectedTopic === "Components"}
-          onSelect={() => handleClick("Components")}
-        >
-          Component
-        </TabContent>
-        <TabContent isSelected={selectedTopic === "JSX"} onSelect={() => handleClick("JSX")}>
-          JSX
-        </TabContent>
-        <TabContent isSelected={selectedTopic === "Props"} onSelect={() => handleClick("Props")}>
-          Props
-        </TabContent>
-        <TabContent isSelected={selectedTopic === "State"} onSelect={() => handleClick("State")}>
-          State
-        </TabContent>
-      </div>
+    <Section title="Examples" className="tabContent">
+      <Tabs
+        buttons={
+          <div className="infoTabs">
+            <TabContent
+              isSelected={selectedTopic === "Components"}
+              onClick={() => handleClick("Components")}
+            >
+              Component
+            </TabContent>
+            <TabContent isSelected={selectedTopic === "JSX"} onClick={() => handleClick("JSX")}>
+              JSX
+            </TabContent>
+            <TabContent isSelected={selectedTopic === "Props"} onClick={() => handleClick("Props")}>
+              Props
+            </TabContent>
+            <TabContent isSelected={selectedTopic === "State"} onClick={() => handleClick("State")}>
+              State
+            </TabContent>
+          </div>
+        }
+      >
+        {tabContent}
+      </Tabs>
 
       {/* Method 1: using ternary operator */}
       {/* {!selectedTopic ? (
@@ -61,7 +68,6 @@ export function TabContents() {
           )} */}
 
       {/* Method 3: using a constant and storing a value */}
-      {tabContent}
-    </section>
+    </Section>
   );
 }
