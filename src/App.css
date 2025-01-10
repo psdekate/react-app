@@ -2,8 +2,24 @@
   padding: 0 1rem;
   width: 95vw;
   margin: 0 auto;
-  display: grid;
-  grid-template-rows: auto 1fr;
-  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
+}
+
+.counter-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 2rem;
+  align-items: center;
+}
+
+.action {
+  padding: 1rem;
+}
+
+.count {
+  font-size: 1.5rem;
 }
