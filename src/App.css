@@ -9,23 +9,36 @@
   height: 100vh;
 }
 
-.options-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-}
-
-.option {
-  border: 1px solid salmon;
-  border-radius: 6px;
-  padding: 1rem;
+.form-wrapper {
   display: flex;
-  gap: 1rem;
-  align-items: center;
   flex-direction: column;
+  gap: 2rem;
+  width: 50vw;
 }
 
-.max {
-  /* background-color: aquamarine; */
-  border: 2px solid rgb(255, 174, 0);
+.title-and-desc {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#formField {
+  padding: 1rem;
+  font-size: inherit;
+  border: none;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
 }
