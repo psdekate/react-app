@@ -9,14 +9,24 @@
 
 .game-wrapper {
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto auto 1fr;
   gap: 1rem;
+}
+
+h1 {
+  text-align: center;
 }
 
 .player {
   display: flex;
   gap: 1rem;
   align-items: center;
+}
+
+.player.active {
+  border: 1px solid indianred;
+  padding: 1rem 2rem;
+  border-radius: 4px;
 }
 
 .game-header {
@@ -61,6 +71,6 @@
 }
 
 .click-button:hover {
-  background-color: rgb(255, 180, 18);
+  background-color: rgb(56, 56, 56);
   border: none;
 }

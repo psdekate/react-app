@@ -18,7 +18,7 @@ export function Players({ symbol, initialName }) {
       type="text"
       className="name-input"
       onChange={handleNameChange}
-      placeholder={playerName}
+      value={playerName}
     />
   );
 
