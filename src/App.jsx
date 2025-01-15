@@ -1,5 +1,6 @@
 import "./App.css";
 import { Players } from "./components/Players";
+import { GameBoard } from "./GameBoard";
 
 function App() {
   return (
@@ -7,10 +8,10 @@ function App() {
       <div className="container">
         <div className="game-wrapper">
           <div className="game-header">
-            <Players />
-            <Players />
+            <Players symbol="X" initialName="Player" />
+            <Players symbol="0" initialName="Player" />
           </div>
-          <div className="game-body">GB</div>
+          <GameBoard />
         </div>
       </div>
     </>
