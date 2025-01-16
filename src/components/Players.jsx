@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function Players({ symbol, initialName }) {
+export function Players({ symbol, initialName, currentPlayer }) {
   const [playerName, setPlayerName] = useState(initialName);
   const [isEditing, setIsEditing] = useState(false);
 
@@ -11,6 +11,8 @@ export function Players({ symbol, initialName }) {
   function handleNameChange(e) {
     setPlayerName(e.target.value);
   }
+
+  const activePlayer = symbol === currentPlayer ? "player active" : "player";
 
   const nameEdit = (
     <input
@@ -24,12 +26,13 @@ export function Players({ symbol, initialName }) {
 
   return (
     <>
-      <div className="player">
+      <div className={activePlayer}>
         {isEditing ? nameEdit : <h2>{playerName} :</h2>}
         <h3>{symbol}</h3>
         <button className="nameChanger" onClick={handleEditing}>
           {isEditing ? "Save" : "Edit"}
         </button>
+        {/* {console.log(`Symbol: ${symbol}, CurrentPlayer: ${currentPlayer}`)} */}
       </div>
     </>
   );
