@@ -11,10 +11,14 @@ function App() {
   const [currentPlayer, setCurrentPlayer] = useState("X");
   const [winner, setWinner] = useState(null);
 
-  function checkWinner(board) {
+  function checkWinner(updatedBoard) {
     for (const [a, b, c] of winningCombinations) {
-      if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-        return board[a];
+      if (
+        updatedBoard[a] &&
+        updatedBoard[a] === updatedBoard[b] &&
+        updatedBoard[a] === updatedBoard[c]
+      ) {
+        return updatedBoard[a];
       }
     }
     return null;
@@ -22,18 +26,24 @@ function App() {
 
   function handleClicked(index) {
     if (!prevBoard[index] && !winner) {
-      const newClick = [...prevBoard];
-      newClick[index] = currentPlayer;
-      setPrevBoard(newClick);
+      const updatedBoard = [...prevBoard];
+      updatedBoard[index] = currentPlayer;
+      setPrevBoard(updatedBoard);
       console.log(index, currentPlayer);
 
-      const newWinner = checkWinner(newClick);
+      const newWinner = checkWinner(updatedBoard);
       if (newWinner) {
         setWinner(newWinner);
       } else {
         setCurrentPlayer((prevPlayer) => (prevPlayer === "X" ? "O" : "X"));
       }
     }
+  }
+
+  function resetGame() {
+    setPrevBoard(Array(9).fill(null));
+    setCurrentPlayer("X");
+    setWinner(null);
   }
 
   return (
@@ -45,7 +55,21 @@ function App() {
             <Players symbol="X" initialName="Player" currentPlayer={currentPlayer} />
             <Players symbol="O" initialName="Player" currentPlayer={currentPlayer} />
           </div>
-          {winner && <h2>Winner is {winner}</h2>}
+          {winner ? (
+            <div className="final-result">
+              <h2>Winner is {winner}</h2>
+              <button className="reset-button" onClick={resetGame}>
+                Reset
+              </button>
+            </div>
+          ) : prevBoard.every((cell) => cell !== null) ? (
+            <div className="final-result">
+              <h2>Its a draw</h2>
+              <button className="reset-button" onClick={resetGame}>
+                Reset
+              </button>
+            </div>
+          ) : null}
           <GameBoard onCellClick={handleClicked} gameBoard={prevBoard} />
         </div>
       </div>

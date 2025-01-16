@@ -32,7 +32,6 @@ export function Players({ symbol, initialName, currentPlayer }) {
         <button className="nameChanger" onClick={handleEditing}>
           {isEditing ? "Save" : "Edit"}
         </button>
-        {/* {console.log(`Symbol: ${symbol}, CurrentPlayer: ${currentPlayer}`)} */}
       </div>
     </>
   );
